@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Data</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 42rem;
+        }
+        .container{
+            background-color: white;
+            border-radius:30px ;
+            outline: none;
+            transition: all 0.4s ease-in-out ;
+            width: 392.85px;
+            height: 347.55px;
+        }
+        .container:hover{
+            transform: scale(1.1);
+        }
+        img{
+            height: 160px;
+        }
+        .card-body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            border-bottom:1px solid black ;
+            padding: 14px 0px;
+        }
+        .card-footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+        }.card-body-title{
+            font-size:1.5rem;
+            padding-top: 24px;
+        }
+        .card-body-text{
+            color: rgb(0 0 0 / 47%);
+        }
+        .card-footer-social{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            text-align: center;
+            margin: 14px;
+        }
+        .card-footer-social h3{
+            font-size: 1rem;
+        }
+        .card-footer-social p{
+            color: rgb(0 0 0 / 47%);
+        }
+    
+      
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        const container= document.querySelector('.container')
+        const request = new XMLHttpRequest()
+        request.open('get','https://restcountries.com/v2/name/nepal')
+        request.send()
+        request.addEventListener('load',function(){
+            const [data] = JSON.parse(this.responseText);
+            const htmlData = `<div class="card">
+            <article class="card">
+                <div class="card-body">
+                    <img src="${data.flag}" alt="" class="card-body-img">
+                    <h1 class="card-body-title">
+                        ${data.name}<span></span>
+                    </h1>
+                    <p class="card-body-text">capital:${data.capital}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-footer-social">
+                        <h3>${data.nativeName}</h3>
+                        <p>Native Language</p>
+                    </div>
+                    <div class="card-footer-social">
+                        <h3>${data.population}</h3>
+                        <p>Population</p>
+                    </div>
+                    <div class="card-footer-social">
+                        <h3>${data.demonym}</h3>
+                        <p>Demonym</p>
+                    </div>
+                </div>
+            </article>
+        </div>`
+        container.insertAdjacentHTML("afterbegin",htmlData)
+        })
+    </script>
+</body>
+</html>
