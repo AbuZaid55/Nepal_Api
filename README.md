@@ -6,7 +6,7 @@ Get Nepal Data using Nepal Api
 
 ## Screenshots
 
-![Screenshot_20230820_164846](https://github.com/AbuZaid55/Image_Gallery/assets/115403447/9822cca6-9479-466c-9fc0-46fe790ddf60)
+![Screenshot_20230831_105144](https://github.com/AbuZaid55/Nepal_Api/assets/115403447/7a687ac8-e558-4e0a-bd8b-ee9fb47d5bcb)
 
 
 ## 🔗 Links
